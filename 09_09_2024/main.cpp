@@ -68,9 +68,29 @@ void printPerson(const person &p)
 employee *enterEmployee()
 {
     person *p = enterPerson();
-    std::string ssn = "1112221111", hiredate = "2024-09-09";
-    double salary = 18060;
+    std::string ssn , hiredate;
+    double salary;
     // add prompts for this data
+    std::cout << "Enter your SSN: ";
+    std::getline(std::cin, ssn);
+    
+    std::cout << "Enter your hire date (YYYY-MM-DD): ";
+    std::getline(std::cin, hiredate);
+    
+    std::cout << "Enter your salary: ";
+    std::cin >> salary;
+    while (!std::cin || salary <= 0) {
+        if (!std::cin){
+            resetStream();
+            std::cout << "You entered an invalid salary. Please enter a positive number." << std::endl;
+            std::cout << "Enter the salary: ";
+            std::cin >> salary;
+        } else if (salary < 6000){
+            salary = 6000;
+        }
+
+    }
+
     employee *e = new employee(p->getFname(), p->getLname(), ssn, hiredate, salary, p->getAddress(), p->getPhone(), p->getEmail());
     delete p;
     return e;
