@@ -47,7 +47,10 @@ std::string processString(std::string inStr)
     static std::map<std::string, std::string> strMap = {{"hello world", "Goodbye"},
                                                         {"how are you?", "OK"},
                                                         {"is the weather nice today?", "No"},
-                                                        {"goodbye", "Have a nice day!"}};
+                                                        {"goodbye", "Have a nice day!"},
+                                                        {"what time is it?", "Time for you to get a watch"},
+                                                        {"thank you", "My pleasure"},
+                                                        {"yippee", "hooray"}};
     std::transform(inStr.begin(), inStr.end(), inStr.begin(), ::tolower);
     if (strMap.count(inStr))
     {
